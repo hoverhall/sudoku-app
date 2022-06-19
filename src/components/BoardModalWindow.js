@@ -20,9 +20,12 @@ function BoardModalWindow(props) {
     // eslint-disable-next-line
     return (
         <div className={styles.modal_window_container}>
-            <h1 className={styles.modal_window_title}>Sudoku</h1>
+            {props.isGameEnded ? 
+                <h1 className={styles.modal_window_title}>Congratulations! You solved the puzzle</h1> :
+                <h1 className={styles.modal_window_title}>Sudoku</h1>
+            }
             <div className={styles.modal_window}>
-                {props.canClose ?
+                {props.canClose && !props.isGameEnded ?
                     <div
                         onClick={props.closeFunc}
                         className={styles.close_btn}>

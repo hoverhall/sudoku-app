@@ -11,7 +11,7 @@ function BoardView() {
     const [hoveredSlot, setHoveredSlot] = useState('')
     const [unswers, setUnswers] = useState(false)
     const [userUnswers, setUserUnswers] = useState({})
-    const [dificulty, setDificulty] = useState(1)
+    const [gameEnded, setGameEnded] = useState(false)
     const [modalOpened, setModalOpened] = useState(false)
 
     function restartGame (dificulty) {
@@ -22,8 +22,8 @@ function BoardView() {
         setHoveredSlot('')
         setUnswers(false)
         setUserUnswers({})
-        setDificulty(dificulty)
         setModalOpened(false)
+        setGameEnded(false)
 
         setBoardToSessionStorage(dificulty)
     }
@@ -55,13 +55,13 @@ function BoardView() {
             setBoard(parseBoard)
             setBoardHiddenSlots(parseBoardHS)
             setUnswers(parseBoardUnswers)
-            setDificulty(parseBoardDificulty)
         }
     }, [])
 
     useEffect(() => {
         if (JSON.stringify(userUnswers) === JSON.stringify(unswers)) {
-            console.log('You did it! Congratulations!')
+            setGameEnded(true)
+            setModalOpened(true)
         }
     }, [userUnswers])
 
@@ -120,7 +120,9 @@ function BoardView() {
                 } else {
                     shownBoard.push(
                         <input
-                        type = 'number'
+                        type="text"
+                        pattern="\d*" 
+                        maxlength='1'
                         key = {`${i}${n}`}
                         id = {`${i}-${n}`}
                         className = {
@@ -147,6 +149,7 @@ function BoardView() {
                     hard={() => restartGame(3)}
                     canClose={board.length}
                     closeFunc={() => setModalOpened(false)}
+                    isGameEnded={gameEnded}
                 /> :
                 <>
                     <div className = {styles.sudoku_board_container}>
