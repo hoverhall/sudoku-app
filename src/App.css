@@ -1,10 +1,65 @@
+@import url(./assets/fonts.css);
+
 .App {
   text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins-Regular';
 }
 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+}
+
+.img-logo {
+  width: 120px;
+  height: 120px;
+  margin-bottom: 50px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.text-logo {
+  font-family: 'Poppins-Bold';
+  font-size: 6em;
+  writing-mode: vertical-rl;
+  color: #323838;
+}
+
+@media (max-width: 710px) {
+  .App {
+    flex-direction: column;
+  }
+  .corporate-logo {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 50px;
+  }
+  .img-logo {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 50px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+  
+  .text-logo {
+    font-family: 'Poppins-Bold';
+    font-size: 3em;
+    writing-mode: horizontal-tb;
+    color: #323838;
+  }
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -36,3 +91,5 @@
     transform: rotate(360deg);
   }
 }
+
+

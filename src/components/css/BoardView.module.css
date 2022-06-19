@@ -1,0 +1,92 @@
+.sudoku_board {
+    margin-top: 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .sudoku_board_container {
+    display: grid;
+    grid-template-columns: 60px 60px 70px 60px 60px 70px 60px 60px 60px;
+    grid-template-rows: 60px 60px 70px 60px 60px 70px 60px 60px 60px;
+  }
+  
+  .static_slot, .changable_slot {
+    display: flex;
+    max-width: 58px;
+    max-height: 58px;
+
+    border: 1px solid #525252;
+    border-radius: 5px;
+    box-sizing: border-box;
+  
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  
+    font-size: 2em;
+  }
+  
+  .static_slot {
+    color: #777777;
+  }
+  .changable_slot {
+    color: #222222;
+    outline-color: #1f3e7e;
+  }
+  
+  .changable_slot::-webkit-outer-spin-button,
+  .changable_slot::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  
+  /* Firefox */
+  .changable_slot[type=number] {
+    -moz-appearance: textfield;
+  }
+
+  .wrong {
+    border: 2px solid #c73a3a;
+    color: #c73a3a;
+  }
+
+  .hovered {
+    background-color: #e4edfd;
+  }
+
+  .board_new_game_btn {
+    width: 400px;
+    height: 50px;
+    border: 0;
+    border-radius: 25px;
+    background-color: #004c97;
+    color: #ffffff;
+    font-size: 18px;
+    margin-top: 20px;
+  }
+
+  @media (max-width: 710px) {
+    .sudoku_board {
+        margin-top: 10px;
+    }
+  }
+
+  @media (max-width: 570px) {
+    .sudoku_board_container {
+        display: grid;
+        grid-template-columns: 35px 35px 40px 35px 35px 40px 35px 35px 35px;
+        grid-template-rows: 35px 35px 40px 35px 35px 40px 35px 35px 35px;
+    }
+    .static_slot, .changable_slot {
+        max-width: 32px;
+        max-height: 32px;
+        border-radius: 2px;
+      
+        font-size: 1em;
+    }
+    .board_new_game_btn {
+        width: 300px;
+      }
+  }

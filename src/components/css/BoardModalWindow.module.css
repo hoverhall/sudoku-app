@@ -1,0 +1,115 @@
+.modal_window_container {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgb(165, 165, 165);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+
+.modal_window_title {
+    font-family: 'Poppins-Bold';
+    font-size: 2em;
+    margin-bottom: 15px;
+}
+
+.modal_window {
+    position: relative;
+    padding: 60px 100px;
+
+    background-color: #ffffff;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 80px 50px 50px 50px 140px;
+    justify-items: flex-start;
+    justify-content: center;
+}
+
+.close_btn {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+
+    top: 30px;
+    right: 20px;
+
+    border: 0;
+    background-color: #00000000;
+}
+.close_btn div {
+    position: absolute;
+    width: 30px;
+    height: 4px;
+
+    background-color: #000000;
+}
+.close_btn div:first-child {
+    transform: rotate(45deg);
+}
+.close_btn div:last-child {
+    transform: rotate(-45deg);
+}
+
+.header_text {
+    justify-self: center;
+}
+
+.create_btn {
+    min-width: 200px;
+    height: 50px;
+    justify-self: center;
+    align-self: flex-end;
+    border: 0;
+    border-radius: 25px;
+    background-color: #004c97;
+    color: #ffffff;
+    font-size: 18px;
+    
+}
+  
+.input {
+    display: none;
+}
+
+.label, .checked {
+    position: relative;
+    font-size: 18px;
+}
+  
+.label:before, .checked:before {
+    content: " ";
+    display: inline-block;
+    position: relative;
+    top: 5px;
+    margin: 0 5px 0 0;
+    width: 20px;
+    height: 20px;
+    border-radius: 11px;
+    border: 2px solid #004c97;
+    background-color: transparent;
+}
+  
+.checked:after {
+    position: relative;
+    content: " ";
+    border-radius: 11px;
+    width: 12px;
+    height: 12px;
+    top: -20px;
+    left: 6px;
+    display: block;
+    background: #004c97;
+}
+
+@media (max-width: 520px) {
+    .modal_window {
+        padding: 60px 15px;
+    }
+}
+
